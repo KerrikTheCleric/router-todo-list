@@ -5,9 +5,10 @@ import "./Todo.css";
 interface ITodoProps {
     todo: ITodo;
     onCompleteClick: (todo: ITodo) => void;
+    onDeleteClick: (todo: ITodo) => void;
   }
 
-export default function Todo({ todo, onCompleteClick}: ITodoProps): ReactElement {
+export default function Todo({ todo, onCompleteClick, onDeleteClick}: ITodoProps): ReactElement {
 
     let buttonColour = "red";
 
@@ -17,10 +18,12 @@ export default function Todo({ todo, onCompleteClick}: ITodoProps): ReactElement
 
     return (
         <section className="todoMainSection">
-            <p>{todo.title}</p>
-            <b>{todo.title}</b>
+            <b>{todo.title}</b> 
             <button className="lowerRightButton" style={{background: buttonColour}} onClick={() => onCompleteClick(todo)}>
                 <span className="material-symbols-outlined" > check </span>
+            </button>
+            <button className="topRightButton"  onClick={() => onDeleteClick(todo)}>
+                <span className="material-symbols-outlined" > delete </span>
             </button>
         </section>
     )

@@ -11,17 +11,10 @@ export function App(): ReactElement {
     setTodos([...todos, todo]);
   };
 
-
-  /*const handleOnMovieClick = (movie: ITodo): void => {
-    //setMovies(todos.filter((m) => m !== movie));
-  };*/
-
   const completeClick = (todoClicked: ITodo): void => {
     
-    //Bugged if two TODOs have the same title.
-
     setTodos(todos.map(todo => {
-      if (todo.title === todoClicked.title) {
+      if (todo === todoClicked) {
         return { ...todo, isComplete: !todo.isComplete }; 
       }else{
         return todo; 
@@ -30,10 +23,14 @@ export function App(): ReactElement {
 
   };
 
+  const deleteClick = (todo: ITodo): void => {
+    setTodos(todos.filter((t) => t !== todo));
+  };
+
   return (
     <>
       <AddTodo addTodo={addTodo}/>
-      <TodoList todos={todos} onCompleteClick={completeClick}/>
+      <TodoList todos={todos} onCompleteClick={completeClick} onDeleteClick={deleteClick}/>
     </>
   );
 }
