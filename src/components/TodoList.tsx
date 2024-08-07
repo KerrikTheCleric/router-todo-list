@@ -4,13 +4,14 @@ import Todo from "./Todo";
 
 interface ITodoListProps {
     todos: ITodo[];
-    //onMovieClick: (movie: IMovieCardData) => void;
+    onCompleteClick: (todo: ITodo) => void;
 }
 
-export default function TodoList({ todos }: ITodoListProps): ReactElement {
+export default function TodoList({ todos, onCompleteClick }: ITodoListProps): ReactElement {
 
     const todosToRender = todos.map((todo) =>
-        <Todo todo={todo} key={crypto.randomUUID()}/>
+
+        <Todo todo={todo} onCompleteClick={onCompleteClick} key={crypto.randomUUID() }/>
     );
 
     return (

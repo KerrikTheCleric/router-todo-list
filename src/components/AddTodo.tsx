@@ -1,7 +1,6 @@
 import { ReactElement, useState } from "react";
 import "./AddTodo.css";
 import { ITodo } from "../interfaces";
-import TodoList from "./TodoList";
 
 interface IAddTodoProps {
     addTodo: (todo: ITodo) => void;
@@ -34,11 +33,12 @@ export default function AddTodo({ addTodo }: IAddTodoProps): ReactElement {
 
     function addButtonEvent() {
 
-         const newTodod: ITodo = {
+         const newTodo: ITodo = {
             title:  titleInputValue,
+            isComplete: false
            };
 
-           addTodo(newTodod); 
+           addTodo(newTodo); 
     }
     
 
@@ -48,15 +48,15 @@ export default function AddTodo({ addTodo }: IAddTodoProps): ReactElement {
       
     return (
         <div>
-            <section className="addMovieMainSection roundedComponent">
+            <section className="addTodoMainSection">
                 <form action="">
-                    <ul className="addMovieComponentList">
-                        <li className="addMovieComponentListItem">
+                    <ul className="titleComponentList">
+                        <li className="">
                             <label htmlFor="titleInput">Title</label>
                             <input className="roundedComponent" type="text" name="" id="titleInput" value={titleInputValue} onChange={handleTitleInputChange} />
                         </li>
                     </ul>
-                    <button className="roundedComponent" type="button" onClick={() => addButtonEvent()}> Add </button>
+                    <button type="button" onClick={() => addButtonEvent()}> Add </button>
                 </form>
             </section>
         </div>

@@ -12,3 +12,11 @@
     position: relative;
     border-radius: 5px;
 }
+
+.lowerRightButton {
+    position: absolute;
+    margin-top: 10px;
+    bottom: 0px;
+    right: 0px;
+    font-size: 18px;
+}
