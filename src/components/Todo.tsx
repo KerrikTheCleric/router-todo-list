@@ -18,12 +18,19 @@ export default function Todo({ todo, onCompleteClick, onDeleteClick}: ITodoProps
 
     return (
         <section className="todoMainSection">
-            <b>{todo.title}</b> 
-            <p>{todo.timestamp.getFullYear()}-{todo.timestamp.getMonth()}-{todo.timestamp.getDay()}  {todo.timestamp.getHours()}:{todo.timestamp.getMinutes()}</p>
-            <button className="lowerRightButton" style={{background: buttonColour}} onClick={() => onCompleteClick(todo)}>
+            <b>{todo.title}</b>
+            <ul>
+                <li>
+                    <p>{todo.timestamp.getFullYear()}-{todo.timestamp.getMonth()}-{todo.timestamp.getDay()}  {todo.timestamp.getHours()}:{todo.timestamp.getMinutes()}</p>
+                </li>
+                <li>
+                    <p>{todo.author}</p>
+                </li>
+            </ul>
+            <button className="lowerRightButton" style={{ background: buttonColour }} onClick={() => onCompleteClick(todo)}>
                 <span className="material-symbols-outlined" > check </span>
             </button>
-            <button className="topRightButton"  onClick={() => onDeleteClick(todo)}>
+            <button className="topRightButton" onClick={() => onDeleteClick(todo)}>
                 <span className="material-symbols-outlined" > delete </span>
             </button>
         </section>

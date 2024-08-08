@@ -13,6 +13,14 @@
     border-radius: 5px;
 }
 
-.titleComponentList{
+.componentList{
     list-style-type: none;
+}
+
+.componentListItem{
+    margin-bottom: 5px;
+}
+
+.titleLabel{
+    margin-right: 16px;
 }

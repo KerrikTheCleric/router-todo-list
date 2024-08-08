@@ -29,3 +29,7 @@
     right: 0px;
     font-size: 18px;
 }
+
+.titleComponentList{
+    list-style-type: none;
+}
