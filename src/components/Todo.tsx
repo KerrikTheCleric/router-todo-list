@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
 import { ITodo } from "../interfaces.ts";
 import "./Todo.css";
 
@@ -19,6 +19,7 @@ export default function Todo({ todo, onCompleteClick, onDeleteClick}: ITodoProps
     return (
         <section className="todoMainSection">
             <b>{todo.title}</b> 
+            <p>{todo.timestamp.getFullYear()}-{todo.timestamp.getMonth()}-{todo.timestamp.getDay()}  {todo.timestamp.getHours()}:{todo.timestamp.getMinutes()}</p>
             <button className="lowerRightButton" style={{background: buttonColour}} onClick={() => onCompleteClick(todo)}>
                 <span className="material-symbols-outlined" > check </span>
             </button>

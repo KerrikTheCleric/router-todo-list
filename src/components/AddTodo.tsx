@@ -35,7 +35,8 @@ export default function AddTodo({ addTodo }: IAddTodoProps): ReactElement {
 
          const newTodo: ITodo = {
             title:  titleInputValue,
-            isComplete: false
+            isComplete: false,
+            timestamp: new Date()
            };
 
            addTodo(newTodo); 
