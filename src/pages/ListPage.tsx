@@ -9,6 +9,8 @@ export function ListPage(): ReactElement {
   const { deleteClick } = useTodoLogic();
   const { editClick } = useTodoLogic();
   const { saveEditClick } = useTodoLogic();
+  const { upwardClick } = useTodoLogic();
+  const { downwardClick } = useTodoLogic();
 
 
 
@@ -17,7 +19,7 @@ export function ListPage(): ReactElement {
    return (
     <section className="">
       {todos.map((t) => (
-        <Todo todo={t} key={crypto.randomUUID()} onCompleteClick={completeClick} onDeleteClick={deleteClick} onEditClick={editClick} saveEditClick={saveEditClick}/>
+        <Todo todo={t} key={crypto.randomUUID()} onCompleteClick={completeClick} onDeleteClick={deleteClick} onEditClick={editClick} saveEditClick={saveEditClick} onUpwardClick={upwardClick} onDownwardClick={downwardClick}/>
       ))}
     </section>
   ); 

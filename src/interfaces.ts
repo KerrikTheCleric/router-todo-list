@@ -12,5 +12,7 @@ export interface ITodo {
     deleteClick: (todo: ITodo) => void;
     editClick: (todo: ITodo) => void;
     saveEditClick: (todoClicked: ITodo, newTitle: string, newAuthor: string) => void;
+    upwardClick: (todo: ITodo) => void;
+    downwardClick: (todo: ITodo) => void;
     todos: ITodo[];
   }

@@ -59,7 +59,53 @@ export function TodoProvider({ children }: ITodoProviderProps): ReactElement {
         return todo; 
       }
     })); 
-  }; 
+  };
+
+  /* const upwardClick = (todoClicked: ITodo): void => {
+    if (todoClicked !== todos[0] && todos.length >= 2) {
+      for (let i = 0; i < todos.length; i++) {
+        if (todoClicked === todos[i]) {
+          console.log(todos);
+          todos[i - 1] = todos.splice(i, 1, todos[i - 1])[0];
+          console.log(todos);
+          setTodos(todos);
+          console.log("Swapped?");
+        }
+      }
+    }
+  } */
+
+  const upwardClick = (todoClicked: ITodo): void => {
+    if (todoClicked !== todos[0] && todos.length >= 2) {
+      for (let i = 0; i < todos.length; i++) {
+        if (todoClicked === todos[i]) {
+          setTodos(array => {
+            let data = [...array];
+            let temp = data[i];
+            data[i] = data[i-1];
+            data[i-1] = temp;
+            return data ;
+        })
+        }
+      }
+    }
+  }
+
+  const downwardClick = (todoClicked: ITodo) => {
+    if (todoClicked !== todos[todos.length-1] && todos.length >= 2) {
+      for (let i = 0; i < todos.length; i++) {
+        if (todoClicked === todos[i]) {
+          setTodos(array => {
+            let data = [...array];
+            let temp = data[i];
+            data[i] = data[i+1];
+            data[i+1] = temp;
+            return data ;
+        })
+        }
+      }
+    }
+  }
 
   const values: ITodoContext = {
     addTodo,
@@ -67,6 +113,8 @@ export function TodoProvider({ children }: ITodoProviderProps): ReactElement {
     deleteClick,
     editClick,
     saveEditClick,
+    upwardClick,
+    downwardClick,
     todos
   };
 

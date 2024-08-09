@@ -10,9 +10,12 @@ interface ITodoProps {
     onDeleteClick: (todo: ITodo) => void;
     onEditClick: (todo: ITodo) => void;
     saveEditClick: (todoClicked: ITodo, newTitle: string, newAuthor: string) => void;
+    onUpwardClick: (todo: ITodo) => void;
+    onDownwardClick: (todo: ITodo) => void;
+
 }
 
-export default function Todo({ todo, onCompleteClick, onDeleteClick, onEditClick, saveEditClick }: ITodoProps): ReactElement {
+export default function Todo({ todo, onCompleteClick, onDeleteClick, onEditClick, saveEditClick, onUpwardClick, onDownwardClick }: ITodoProps): ReactElement {
 
     const formattedTimeStamp = (todo.timestamp.getFullYear() + '/' + ('0' + (todo.timestamp.getMonth() + 1)).slice(-2) + '/' + ('0' + todo.timestamp.getDay()).slice(-2) + ' - '
         + ('0' + (todo.timestamp.getHours())).slice(-2) + ':' + ('0' + (todo.timestamp.getMinutes())).slice(-2));
@@ -29,6 +32,12 @@ export default function Todo({ todo, onCompleteClick, onDeleteClick, onEditClick
                         <p>{todo.author}</p>
                     </li>
                 </ul>
+                <button className="bottomMiddleButtonOne" onClick={() => onUpwardClick(todo)}>
+                    <span className="material-symbols-outlined" > arrow_upward </span>
+                </button>
+                <button className="bottomMiddleButtonTwo" onClick={() => onDownwardClick(todo)}>
+                    <span className="material-symbols-outlined" > arrow_downward </span>
+                </button>
                 <button className="topRightButton" onClick={() => onDeleteClick(todo)}>
                     <span className="material-symbols-outlined" > delete </span>
                 </button>

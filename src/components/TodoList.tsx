@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+/* import { ReactElement } from "react";
 import { ITodo } from "../interfaces";
 import Todo from "./Todo";
 
@@ -20,4 +20,4 @@ export default function TodoList({ todos, onCompleteClick, onDeleteClick }: ITod
             {todosToRender}
         </section>
     )
-}
+} */

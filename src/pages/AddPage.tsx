@@ -35,6 +35,8 @@ export function AddPage(): ReactElement {
           //console.log(newTodo);
 
         addTodo(newTodo);
+        setTitle("");
+        setAuthor("");
     }
 
   return (
