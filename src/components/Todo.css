@@ -22,6 +22,14 @@
     font-size: 18px;
 }
 
+.middleRightButton {
+    position: absolute;
+    margin-top: 10px;
+    bottom: 40px;
+    right: 0px;
+    font-size: 18px;
+}
+
 .topRightButton {
     position: absolute;
     margin-top: 10px;

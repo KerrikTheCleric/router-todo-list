@@ -7,13 +7,17 @@ export function ListPage(): ReactElement {
   const { todos } = useTodoLogic();
   const { completeClick } = useTodoLogic();
   const { deleteClick } = useTodoLogic();
+  const { editClick } = useTodoLogic();
+  const { saveEditClick } = useTodoLogic();
+
+
 
   //console.log(todos);
 
    return (
     <section className="">
       {todos.map((t) => (
-        <Todo todo={t} key={t.title} onCompleteClick={completeClick} onDeleteClick={deleteClick} />
+        <Todo todo={t} key={crypto.randomUUID()} onCompleteClick={completeClick} onDeleteClick={deleteClick} onEditClick={editClick} saveEditClick={saveEditClick}/>
       ))}
     </section>
   ); 

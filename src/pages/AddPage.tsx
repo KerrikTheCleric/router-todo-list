@@ -28,16 +28,14 @@ export function AddPage(): ReactElement {
             title:  titleInputValue,
             isComplete: false,
             timestamp: new Date(),
-            author: authorInputValue
+            author: authorInputValue,
+            isEditing: false
           };
 
           //console.log(newTodo);
 
         addTodo(newTodo);
     }
-
-
-
 
   return (
     <main className="about-page">

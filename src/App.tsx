@@ -1,6 +1,6 @@
 import { ReactElement, useState } from "react";
 import TodoList from "./components/TodoList";
-import AddTodo from "./components/AddTodo";
+//import AddTodo from "./components/AddTodo";
 import { ITodo } from "./interfaces";
 import {AboutPage} from "./pages/AboutPage.tsx";
 import { ListPage } from "./pages/ListPage.tsx";

@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+/* import { ReactElement, useState } from "react";
 import "./AddTodo.css";
 import { ITodo } from "../interfaces";
 
@@ -31,7 +31,7 @@ export default function AddTodo({ addTodo }: IAddTodoProps): ReactElement {
         setDescriptionInputValue(event.target.value);
     };*/
 
-    function addButtonEvent() {
+    /* function addButtonEvent() {
 
          const newTodo: ITodo = {
             title:  titleInputValue,
@@ -41,10 +41,10 @@ export default function AddTodo({ addTodo }: IAddTodoProps): ReactElement {
            };
 
            addTodo(newTodo); 
-    }
+    } */
     
 
-    function todoClickEvent(todo: ITodo){
+    /* function todoClickEvent(todo: ITodo){
         //setMovieCards(movieCards.filter((m) => m !== movie));
     }
       
@@ -67,4 +67,4 @@ export default function AddTodo({ addTodo }: IAddTodoProps): ReactElement {
             </section>
         </div>
     )
-}
+}  */

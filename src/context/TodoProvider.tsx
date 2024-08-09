@@ -22,11 +22,6 @@ export function TodoProvider({ children }: ITodoProviderProps): ReactElement {
 
   const addTodo = (todo: ITodo) => {
     setTodos([todo, ...todos]);
-    //console.log(todos);
-  };
-
-  const removeTodo = (todo: ITodo): void => {
-    setTodos(todos.filter((t) => t !== todo));
   };
 
   const completeClick = (todoClicked: ITodo): void => {
@@ -45,11 +40,33 @@ export function TodoProvider({ children }: ITodoProviderProps): ReactElement {
     setTodos(todos.filter((t) => t !== todo));
   };
 
+  const editClick = (todoClicked: ITodo): void => {
+
+    setTodos(todos.map(todo => {
+      if (todo === todoClicked) {
+        return { ...todo, isEditing: !todo.isEditing }; 
+      }else{
+        return todo; 
+      }
+    })); 
+  };
+
+  const saveEditClick = (todoClicked: ITodo, newTitle: string, newAuthor: string): void => {
+    setTodos(todos.map(todo => {
+      if (todo === todoClicked) {
+        return { ...todo, isEditing: !todo.isEditing, title: newTitle, author: newAuthor }; 
+      }else{
+        return todo; 
+      }
+    })); 
+  }; 
+
   const values: ITodoContext = {
     addTodo,
-    removeTodo,
     completeClick,
     deleteClick,
+    editClick,
+    saveEditClick,
     todos
   };
 
