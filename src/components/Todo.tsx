@@ -6,22 +6,26 @@ interface ITodoProps {
     todo: ITodo;
     onCompleteClick: (todo: ITodo) => void;
     onDeleteClick: (todo: ITodo) => void;
-  }
+}
 
-export default function Todo({ todo, onCompleteClick, onDeleteClick}: ITodoProps): ReactElement {
+export default function Todo({ todo, onCompleteClick, onDeleteClick }: ITodoProps): ReactElement {
 
     let buttonColour = "red";
 
-    if(todo.isComplete){
+    if (todo.isComplete) {
         buttonColour = "green";
     }
+
+    let formattedTimeStamp = (todo.timestamp.getFullYear() + '/' + ('0' + (todo.timestamp.getMonth() + 1)).slice(-2) + '/' + ('0' + todo.timestamp.getDay()).slice(-2) + ' - '
+        + ('0' + (todo.timestamp.getHours())).slice(-2) + ':' + ('0' + (todo.timestamp.getMinutes())).slice(-2));
+
 
     return (
         <section className="todoMainSection">
             <b>{todo.title}</b>
             <ul>
                 <li>
-                    <p>{todo.timestamp.getFullYear()}-{todo.timestamp.getMonth()}-{todo.timestamp.getDay()}  {todo.timestamp.getHours()}:{todo.timestamp.getMinutes()}</p>
+                    {formattedTimeStamp}
                 </li>
                 <li>
                     <p>{todo.author}</p>
