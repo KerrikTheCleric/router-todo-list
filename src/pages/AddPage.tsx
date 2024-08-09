@@ -2,6 +2,9 @@ import {ReactElement, useState } from "react";
 import {useTodoLogic} from "../hooks/useTodoLogic.ts"
 import { ITodo } from "../interfaces.ts";
 
+import "../components/AddTodo.css";
+
+
 //import { Button, EmployeeAvatar } from "../components";
 
 export function AddPage(): ReactElement {

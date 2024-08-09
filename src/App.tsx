@@ -2,7 +2,7 @@ import { ReactElement, useState } from "react";
 import TodoList from "./components/TodoList";
 import AddTodo from "./components/AddTodo";
 import { ITodo } from "./interfaces";
-import {InfoPage} from "./pages/InfoPage";
+import {AboutPage} from "./pages/AboutPage.tsx";
 import { ListPage } from "./pages/ListPage.tsx";
 import { Outlet } from "react-router-dom";
 import { TodoProvider } from "./context/TodoProvider.tsx";

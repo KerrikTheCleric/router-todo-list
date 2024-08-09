@@ -7,9 +7,10 @@ import "./Header.css";
 export function Header(): ReactElement {
   return (
     <header className="header">
-      <h1 className="logo">Todo List</h1>
+      <h1 className="logo">Todo</h1>
       <div className="links">
         <Link className="link" to="/add">Add new Todo</Link>
+        <Link className="link" to="/info">About Page</Link>
         <Link className="link" to="/">Todo List</Link>
       </div>
     </header>
