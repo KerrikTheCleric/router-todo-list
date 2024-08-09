@@ -11,6 +11,8 @@ export function ListPage(): ReactElement {
   const { saveEditClick } = useTodoLogic();
   const { upwardClick } = useTodoLogic();
   const { downwardClick } = useTodoLogic();
+  const { sortByTimeClick } = useTodoLogic();
+  const { sortByAuthorClick } = useTodoLogic();
 
 
 
@@ -18,6 +20,8 @@ export function ListPage(): ReactElement {
 
    return (
     <section className="">
+      <button type="button" onClick={() => sortByTimeClick()}>Sort By Time </button> 
+      <button type="button" onClick={() => sortByAuthorClick()}>Sort By Author </button> 
       {todos.map((t) => (
         <Todo todo={t} key={crypto.randomUUID()} onCompleteClick={completeClick} onDeleteClick={deleteClick} onEditClick={editClick} saveEditClick={saveEditClick} onUpwardClick={upwardClick} onDownwardClick={downwardClick}/>
       ))}

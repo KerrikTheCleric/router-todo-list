@@ -14,5 +14,7 @@ export interface ITodo {
     saveEditClick: (todoClicked: ITodo, newTitle: string, newAuthor: string) => void;
     upwardClick: (todo: ITodo) => void;
     downwardClick: (todo: ITodo) => void;
+    sortByTimeClick: () => void;
+    sortByAuthorClick: () => void;
     todos: ITodo[];
   }

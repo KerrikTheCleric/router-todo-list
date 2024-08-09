@@ -107,6 +107,24 @@ export function TodoProvider({ children }: ITodoProviderProps): ReactElement {
     }
   }
 
+  const sortByTimeClick = () => {
+    // Change to non-mutating solution?
+    const sorted = [...todos].sort((a, b) => {
+      return a.timestamp.getTime() - b.timestamp.getTime();
+    });
+    setTodos(sorted);
+  };
+
+  const sortByAuthorClick = () => {
+        // Change to non-mutating solution?
+    const sorted = [...todos].sort((a, b) => {
+      if(a.author.toLowerCase() < b.author.toLowerCase()) return -1;
+      if(a.author.toLowerCase() > b.author.toLowerCase()) return 1;
+      return 0;
+    });
+    setTodos(sorted);
+  };
+
   const values: ITodoContext = {
     addTodo,
     completeClick,
@@ -115,6 +133,8 @@ export function TodoProvider({ children }: ITodoProviderProps): ReactElement {
     saveEditClick,
     upwardClick,
     downwardClick,
+    sortByTimeClick,
+    sortByAuthorClick,
     todos
   };
 
