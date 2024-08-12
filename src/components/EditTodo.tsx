@@ -7,7 +7,7 @@ interface IEditTodoProps {
     onSaveEditClick: (todoClicked: ITodo, newTitle: string, newAuthor: string) => void;
 }
 
-export default function Todo({ todo, onSaveEditClick }: IEditTodoProps): ReactElement {
+export default function EditTodo({ todo, onSaveEditClick }: IEditTodoProps): ReactElement {
 
     const [titleInputValue, setTitle] = useState<string>(todo.title);
     const [authorInputValue, setAuthor] = useState<string>(todo.author);
