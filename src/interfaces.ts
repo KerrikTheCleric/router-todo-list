@@ -16,5 +16,6 @@ export interface ITodo {
     downwardClick: (todo: ITodo) => void;
     sortByTimeClick: () => void;
     sortByAuthorClick: () => void;
+    fetchAPITodos: () => void;
     todos: ITodo[];
   }

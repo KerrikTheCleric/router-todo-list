@@ -145,6 +145,39 @@ export function TodoProvider({ children }: ITodoProviderProps): ReactElement {
     setTodos(sorted);
   };
 
+  async function fetchAPITodos() {
+    //setLoadingSearchResults(true);
+    const response = await fetch('http://localhost:5287/api/TodoItems');
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    response.json().then((data) => {
+
+      console.log(data);
+
+      setTodos([]);
+      const newArray: ITodo[] = [];
+
+      for (let i = 0; i < data.length; i++) {
+        const newTodo: ITodo = {
+          //id: data[i].idDrink,
+          title:  data[i].title,
+          isComplete: data[i].isCompleted,
+          timestamp: new Date(data[i].timestamp),
+          author: data[i].author,
+          isEditing: false,
+        }
+        newArray.push(newTodo);
+      }
+      setTodos(newArray);
+    }).catch((e) => { console.log(e); alert("No todos found.") })
+
+    //setLoadingSearchResults(false);
+    //setCurrentPage(1);
+  }
+
   const values: ITodoContext = {
     addTodo,
     completeClick,
@@ -155,6 +188,7 @@ export function TodoProvider({ children }: ITodoProviderProps): ReactElement {
     downwardClick,
     sortByTimeClick,
     sortByAuthorClick,
+    fetchAPITodos,
     todos
   };
 
